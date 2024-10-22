@@ -23,7 +23,7 @@ def game(cards):
 
 def game_computer(computer_cards, count_gamer, count_computer):
     while True:
-        print(f"computer cards: {computer_cards}: {count_computer}")
+        print(f"\ncomputer cards: {computer_cards}: {count_computer}")
         if count_computer > 21: return ('gamer win', count_computer)
         elif count_computer == count_gamer and count_computer >= 17: return ('draw', count_computer)
         elif count_computer > count_gamer: return ('computer wins', count_computer)
@@ -40,16 +40,13 @@ count_gamer = count(my_cards, START_COUNT)
 count_computer = count(computer_cards, START_COUNT)
 first_computer_card = count([computer_cards[0]], START_COUNT) # to show
 
-print(f"your cards: {my_cards}: {count_gamer}")
-print(f"computer first card: '{computer_cards[0]}': {first_computer_card} \n")
-
 while True:
+    print(f"\nyour cards: {my_cards}: {count_gamer}")
+    print(f"computer first card: '{computer_cards[0]}': {first_computer_card} \n")
     move = input("click 'n' for one more card or click 'e' for end the turn \n")
     if move == 'n':
         game(my_cards)
         count_gamer = count([my_cards[-1]], count_gamer)
-        print(f"\nyour cards: {my_cards}: {count_gamer}")
-        print(f"computer first card: '{computer_cards[0]}': {first_computer_card} \n")
         if count_gamer > 21: 
             result = ("computer wins", None)
             break
@@ -58,7 +55,7 @@ while True:
         count_computer = result[1]
         break
 
-print("\n ----------------------------------------------- \n")
+print("\n-----------------------------------------------\n")
 print(f"your cards: {my_cards}: {count_gamer}")
 print(f"computer cards: {computer_cards}: {count_computer}")
 print(result[0])
